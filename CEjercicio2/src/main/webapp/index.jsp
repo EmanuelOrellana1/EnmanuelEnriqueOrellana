@@ -18,5 +18,9 @@
 		<br>
 		<input type="submit">
 	</form>
+	
+<%String saludo ="HOLA MUNDO DESDE JAVA"; %>
+<h1> value=<%=saludo %></h1>
+	
 </body>
 </html>

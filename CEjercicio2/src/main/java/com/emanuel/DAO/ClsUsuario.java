@@ -33,4 +33,17 @@ public class ClsUsuario {
 
         return Lista;
     }
+	public void Eliminar (usuario user) {
+		
+		try {
+			CallableStatement consulta = con.prepareCall("call SP_D_USER(?)");
+			consulta.setInt("pIdUsuario", user.getIdUsuario());
+			consulta.executeQuery();
+			System.out.println("Exito");
+			con.close();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }
