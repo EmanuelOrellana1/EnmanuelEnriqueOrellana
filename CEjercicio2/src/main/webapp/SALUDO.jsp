@@ -29,7 +29,10 @@
 					<td>${item.idUsuario}</td>
 					<td>${item.Usuario}</td>
 					<td>${item.Pass}</td>
-					<td> <a href="ControllerMostrarInformacion?usu=${item.idUsuario}" class="btn btn-danger">ELIMINAR  <a> </td>
+					<td> <a href="ControllerMostrarInformacion?IdUsuario=${item.idUsuario}&Eliminar=btne" class="btn btn-danger">ELIMINAR  <a> 
+					<a class="btn btn-warning">ACTUALIZAR</a>
+					</td>
+					</td>
 					</tr>
 					
 					`
