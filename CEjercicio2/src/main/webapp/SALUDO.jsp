@@ -16,7 +16,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$.post('ControllerMostrarInformacion', {
-
+//ENVIO DE VARIABLE CON JS
 			}, function(response) {
 				let datos = JSON.parse(response);
 
@@ -30,7 +30,7 @@
 					<td>${item.Usuario}</td>
 					<td>${item.Pass}</td>
 					<td> <a href="ControllerMostrarInformacion?IdUsuario=${item.idUsuario}&Eliminar=btne" class="btn btn-danger">ELIMINAR  <a> 
-					<a class="btn btn-warning">ACTUALIZAR</a>
+					<a  href="add.jsp?Id=${item.idUsuario}&Usuario=${item.Usuario}&Pass=${item.Pass}" class="btn btn-warning">ACTUALIZAR</a>
 					</td>
 					</td>
 					</tr>
@@ -44,6 +44,8 @@
 			});
 		});
 </script>
+<a href="add.jsp" class="btn btn-primary">Agregar</a>
+
 <table class="table table-dark table-striped" id="TablaDatos">
 	<thead>
 	<th>IdUsuario</th>
