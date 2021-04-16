@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ControllerAcceso" method = "post">
+<form action="ContrllerAcceso" method = "post">
 		<label>User</label>
 		<br>
 		<input type="text" name="user" placeholder="Digita tu usuario">
@@ -19,8 +19,6 @@
 		<input type="submit">
 	</form>
 	
-<%String saludo ="HOLA MUNDO DESDE JAVA"; %>
-<h1> value=<%=saludo %></h1>
 	
 </body>
 </html>

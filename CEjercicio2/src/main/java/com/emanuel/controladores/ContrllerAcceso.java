@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.emanuel.DAO.ClsUsuario;
 import com.emanuel.entidades.Loguin;
+import com.emanuel.entidades.usuario;
 import com.emanuel.negocio.clsLoguin;
 
 /**
  * Servlet implementation class ControllerAcceso
  */
-@WebServlet("/ControllerAcceso")
+@WebServlet("/ContrllerAcceso")
 public class ContrllerAcceso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,10 +44,10 @@ public class ContrllerAcceso extends HttpServlet {
 		
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
-		Loguin log = new Loguin();
+		usuario log = new usuario();
 		clsLoguin clsL = new clsLoguin();
 		
-		log.setUser(user);
+		log.setUsuario(user);
 		log.setPass(pass);
 		
 		int valoracceso = clsL.acceso(log);
@@ -59,7 +60,10 @@ public class ContrllerAcceso extends HttpServlet {
 			{
 				System.out.println(iterar.getUsuario());
 			}
-		}else {
+		}else if(valoracceso==2){
+			System.out.println("Usuario Normal");
+			response.sendRedirect("loguin.jsp");
+		}else{
 			response.sendRedirect("Error.jsp");
 		}
 	}

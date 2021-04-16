@@ -5,6 +5,8 @@ public class tipoUsuarios {
 	protected int idTipoUsuario;
     protected String TipoUser;
     
+    
+    
 	public int getIdTipoUsuario() {
 		return idTipoUsuario;
 	}
