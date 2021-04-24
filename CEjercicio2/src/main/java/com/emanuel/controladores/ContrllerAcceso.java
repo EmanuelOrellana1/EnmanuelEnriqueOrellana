@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.emanuel.DAO.ClsUsuario;
 import com.emanuel.entidades.Loguin;
@@ -42,6 +43,19 @@ public class ContrllerAcceso extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		//Agregacion clase jueves.
+		HttpSession session = request.getSession(true);
+		
+		String btncerra = request.getParameter("btncerrar");
+		
+		if(btncerra!=null) {
+			response.sendRedirect("index.jsp");
+			session.invalidate();
+		}else {
+			
+	
+		
+		
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
 		usuario log = new usuario();
@@ -56,6 +70,7 @@ public class ContrllerAcceso extends HttpServlet {
 			ClsUsuario clsUsuario = new ClsUsuario();
 			var Usuario = clsUsuario.ListadoUSUARIOS();
 			response.sendRedirect("SALUDO.jsp");
+			session.setAttribute("usuario", valoracceso);
 			for(var iterar : Usuario)
 			{
 				System.out.println(iterar.getUsuario());
@@ -65,6 +80,7 @@ public class ContrllerAcceso extends HttpServlet {
 			response.sendRedirect("loguin.jsp");
 		}else{
 			response.sendRedirect("Error.jsp");
+		}
 		}
 	}
 

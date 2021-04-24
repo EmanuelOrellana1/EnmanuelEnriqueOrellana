@@ -29,6 +29,7 @@
 					<td>${item.idUsuario}</td>
 					<td>${item.Usuario}</td>
 					<td>${item.Pass}</td>
+					<td>${item.TipoUser}</td>
 					<td> <a href="ControllerMostrarInformacion?IdUsuario=${item.idUsuario}&Eliminar=btne" class="btn btn-danger">ELIMINAR  <a> 
 					<a  href="add.jsp?Id=${item.idUsuario}&Usuario=${item.Usuario}&Pass=${item.Pass}" class="btn btn-warning">ACTUALIZAR</a>
 					</td>
@@ -44,13 +45,26 @@
 			});
 		});
 </script>
-<a href="add.jsp" class="btn btn-primary">Agregar</a>
+<%
+HttpSession sesion = (HttpSession) request.getSession();
+String usuSession = String.valueOf(sesion.getAttribute("usuario"));
+System.out.print(usuSession +"Nombre usuario");
+
+if(usuSession.equals(null)||usuSession.equals("null")){
+	response.sendRedirect("index.jsp");
+}
+%>
+
+<form action="ContrllerAcceso" method="post">
+<input type="submit" name="btncerrar" value="cerrar">
+</form>
 
 <table class="table table-dark table-striped" id="TablaDatos">
 	<thead>
 	<th>IdUsuario</th>
 	<th>Usuario</th>
 	<th>Password</th>
+	<th>Tipo</th>
 	<th>ACCIONES</th>
 	</thead>	
 	<body>

@@ -18,14 +18,14 @@ public class ClsUsuario {
 
 		try {
 
-			CallableStatement consulta = con.prepareCall("call SP_S_SOLOUSUARIOS()");
+			CallableStatement consulta = con.prepareCall("select u.idUsuario, u.Usuario, u.password,t.TipoUser from usuario as u inner join tipousuario as t where u.tipoUsuario = t.id");
 			ResultSet rs = consulta.executeQuery();
 			while (rs.next()) {
 				usuario user = new usuario();
 				user.setIdUsuario(rs.getInt("idUsuario"));
 				user.setUsuario(rs.getString("Usuario"));
-				user.setPass(rs.getString("PassWord"));
-				user.setIdTipoUsuario(rs.getInt("tipoUsuario"));
+				user.setPass(rs.getString("password"));
+				user.setTipoUser(rs.getString("TipoUser"));
 				Lista.add(user);
 			}
 		} catch (Exception e) {
