@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ControllerAjax</servlet-name>
+  	<display-name>ControllerAjax</display-name>
+  	<description></description>
+  	<servlet-class>com.emanuel.controladores.ControllerAjax</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Controllerfiles</servlet-name>
+  	<display-name>Controllerfiles</display-name>
+  	<description></description>
+  	<servlet-class>com.emanuel.controladores.Controllerfiles</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControllerAjax</servlet-name>
+  	<url-pattern>/ControllerAjax</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Controllerfiles</servlet-name>
+  	<url-pattern>/Controllerfiles</url-pattern>
+  </servlet-mapping>
 </web-app>
